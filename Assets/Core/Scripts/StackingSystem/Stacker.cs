@@ -95,6 +95,7 @@ public class Stacker : MonoBehaviour, IStacker
 
     private IEnumerator HandleStackScaleCo()
     {
+        //Copying list here to avoid out of range issues on obstacle collisions
         IStackable[] tempArray = Stacks.ToArray();
 
         for (int i = tempArray.Length - 1; i >= 0; i--)
