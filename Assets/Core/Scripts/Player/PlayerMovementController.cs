@@ -17,20 +17,7 @@ public class PlayerMovementController : MonoBehaviour
     #region Movement
     private void HandleMovement()
     {
-        Vector3 movementVector = new Vector3(PlayerInput.InputX, 0, 1);
-
-        transform.position += movementVector * Time.deltaTime * movementData.MovementSpeed;
-
-        ClampMovement();
-    }
-
-    private void ClampMovement()
-    {
-        Vector3 clampedPosition = transform.position;
-
-        clampedPosition.x = Mathf.Clamp(clampedPosition.x, movementData.ClampX.x, movementData.ClampX.y);
-
-        transform.position = clampedPosition;
+        transform.position += Vector3.forward * Time.deltaTime * movementData.MovementSpeed;
     }
     #endregion
 
