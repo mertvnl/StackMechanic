@@ -10,6 +10,8 @@ public class Stacker : MonoBehaviour, IStacker
     [field: SerializeField] public Transform FollowTarget { get; set; }
     public List<IStackable> Stacks { get; set; } = new List<IStackable>();
 
+    private const float Z_OFFSET = 1f;
+
     private void OnEnable()
     {
         Events.OnObstacleCollision.AddListener(Unstack);
@@ -84,7 +86,7 @@ public class Stacker : MonoBehaviour, IStacker
             if (i - 1 < 0)
                 Stacks[i].transform.position = Vector3.Lerp(Stacks[i].transform.position, FollowTarget.position, Time.deltaTime * 15);
             else
-                Stacks[i].transform.position = Vector3.Lerp(Stacks[i].transform.position, Stacks[i - 1].transform.position + Vector3.forward, Time.deltaTime * 15);
+                Stacks[i].transform.position = Vector3.Lerp(Stacks[i].transform.position, Stacks[i - 1].transform.position + Vector3.forward * Z_OFFSET, Time.deltaTime * 15);
         }
     }
 
