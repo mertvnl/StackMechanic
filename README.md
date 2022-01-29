@@ -1,6 +1,6 @@
 ### This is not a complete game but a very popular mechanic.
 
-In this repo, I've tried to make a stack mechanic similar to ATM Rush.
+In this repo, I've tried to make a stack mechanic similar to ATM Rush in few hours.
 
 ### Assets Used
 1- **DoTween**, to make simple animatons.
