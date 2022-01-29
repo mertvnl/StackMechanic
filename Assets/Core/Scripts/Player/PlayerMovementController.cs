@@ -4,15 +4,17 @@ public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField] private PlayerMovementData movementData;
 
+    #region Getters
     private PlayerInputController playerInput;
     public PlayerInputController PlayerInput { get { return playerInput == null ? playerInput = GetComponent<PlayerInputController>() : playerInput; } }
-
+    #endregion
 
     private void Update()
     {
         HandleMovement();
     }
 
+    #region Movement
     private void HandleMovement()
     {
         Vector3 movementVector = new Vector3(PlayerInput.InputX, 0, 1);
@@ -30,4 +32,6 @@ public class PlayerMovementController : MonoBehaviour
 
         transform.position = clampedPosition;
     }
+    #endregion
+
 }
